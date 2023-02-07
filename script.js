@@ -2,6 +2,7 @@ let input = document.getElementById('input');
 let convert = document.getElementById('convert');
 let change = document.getElementById('change');
 let result = document.getElementById('result');
+let reset = document.getElementById('reset');
 
 let heading = document.querySelector('.heading');
 let inputState = document.querySelector('.input-group-text span');
@@ -30,7 +31,7 @@ convert.addEventListener('click', ()=> {
     }
     
 
-})
+});
 
 change.addEventListener('click', ()=> {
 
@@ -51,5 +52,15 @@ change.addEventListener('click', ()=> {
         heading.innerHTML = "Convert Fahrenheit to Celsius";
         inputState.innerHTML = "F";
     }
+
+});
+
+reset.addEventListener('click', ()=> {
+
+    input.value = '';
+    result.style.display = 'none';
+    convertingState = 1;
+    heading.innerHTML = "Convert Celsius to Fahrenheit";
+    inputState.innerHTML = "C";
 
 })
