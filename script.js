@@ -6,6 +6,7 @@ let result = document.getElementById('result');
 let heading = document.querySelector('.heading');
 let inputState = document.querySelector('.input-group-text span');
 let ourValue = document.querySelector('.card-title span');
+let ourValueState = document.querySelector('.card-title i');
 let convertedValue = document.querySelector('.card-text');
 
 let convertingState = 1 // 1 return C => F && 2 return F to C
@@ -17,7 +18,14 @@ convert.addEventListener('click', ()=> {
     if (convertingState === 1) {
         result.style.display = 'block';
         ourValue.innerHTML = input.value;
+        ourValueState.innerHTML = "C";
         convertedValue.innerHTML = "= "+((inputValue*9/5)+32)+" <sup>o</sup>F";
+        input.value = ''
+    }else {
+        result.style.display = 'block';
+        ourValue.innerHTML = input.value;
+        ourValueState.innerHTML = "F";
+        convertedValue.innerHTML = "= "+Math.floor(((inputValue-32)*5/9))+" <sup>o</sup>C";
         input.value = ''
     }
     
@@ -27,9 +35,11 @@ convert.addEventListener('click', ()=> {
 change.addEventListener('click', ()=> {
 
     if (convertingState === 1) {
-        convertingState = 2
+        convertingState = 2;
+        result.style.display = 'none';
     }else {
-        convertingState = 1
+        convertingState = 1;
+        result.style.display = 'none';
     }
 
     if (convertingState == 1) {
