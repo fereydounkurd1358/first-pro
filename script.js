@@ -16,18 +16,22 @@ convert.addEventListener('click', ()=> {
 
     let inputValue = parseInt(input.value);
 
-    if (convertingState === 1) {
-        result.style.display = 'block';
-        ourValue.innerHTML = input.value;
-        ourValueState.innerHTML = "C";
-        convertedValue.innerHTML = "= "+((inputValue*9/5)+32)+" <sup>o</sup>F";
-        input.value = ''
+    if (isNaN(inputValue)) {
+        alert('لطفا فقط عدد وارد کنبد')
     }else {
-        result.style.display = 'block';
-        ourValue.innerHTML = input.value;
-        ourValueState.innerHTML = "F";
-        convertedValue.innerHTML = "= "+Math.floor(((inputValue-32)*5/9))+" <sup>o</sup>C";
-        input.value = ''
+        if (convertingState === 1) {
+            result.style.display = 'block';
+            ourValue.innerHTML = input.value;
+            ourValueState.innerHTML = "C";
+            convertedValue.innerHTML = "= "+((inputValue*9/5)+32)+" <sup>o</sup>F";
+            input.value = ''
+        }else {
+            result.style.display = 'block';
+            ourValue.innerHTML = input.value;
+            ourValueState.innerHTML = "F";
+            convertedValue.innerHTML = "= "+Math.floor(((inputValue-32)*5/9))+" <sup>o</sup>C";
+            input.value = ''
+        }
     }
     
 
@@ -64,3 +68,5 @@ reset.addEventListener('click', ()=> {
     inputState.innerHTML = "C";
 
 })
+
+// validation
